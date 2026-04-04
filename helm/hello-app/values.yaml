@@ -1,0 +1,12 @@
+image:
+  repository: bharatdasa/hello-world
+  tag: latest
+
+replicaCount: 2
+
+service:
+  port: 80
+
+ingress:
+  enabled: true
+  host: hello.192.168.56.100.nip.io
