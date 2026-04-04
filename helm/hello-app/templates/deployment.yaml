@@ -4,6 +4,7 @@ metadata:
   name: hello-app
   namespace: project1
 spec:
+  serviceAccountName: hello-app-sa
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
