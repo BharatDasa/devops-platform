@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
       - name: app
-        image: bharatdasa/hello-world:latest
+        image: IMAGE_PLACEHOLDER   # 🔥 important
         ports:
         - containerPort: 8080
