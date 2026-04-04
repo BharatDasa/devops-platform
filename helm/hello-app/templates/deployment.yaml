@@ -1,10 +1,10 @@
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: hello-app
   namespace: project1
 spec:
-  serviceAccountName: hello-app-sa
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
@@ -14,6 +14,7 @@ spec:
       labels:
         app: hello-app
     spec:
+      serviceAccountName: hello-app-sa   # ✅ correct place
       containers:
       - name: app
         image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
