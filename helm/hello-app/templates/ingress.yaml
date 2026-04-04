@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: hello-app
-  namespace: project1
+  namespace: {{ .Release.Namespace }}
 spec:
   ingressClassName: nginx
   rules:
