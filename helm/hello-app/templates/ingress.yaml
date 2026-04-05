@@ -5,6 +5,12 @@ metadata:
   namespace: {{ .Release.Namespace }}
 spec:
   ingressClassName: nginx
+
+  tls:
+  - hosts:
+    - {{ .Values.ingress.host }}
+    secretName: wildcard-tls
+  
   rules:
   - host: {{ .Values.ingress.host }}
     http:
