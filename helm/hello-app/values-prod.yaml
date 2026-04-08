@@ -1,0 +1,10 @@
+replicaCount: 3
+
+ingress:
+  enabled: true
+  host: hello.192.168.56.100.nip.io
+
+resources:
+  limits:
+    cpu: "500m"
+    memory: "512Mi"
