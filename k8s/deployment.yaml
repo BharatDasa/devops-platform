@@ -14,7 +14,7 @@ spec:
         app: hello-app
     spec:
       containers:
-      - name: app
-        image: IMAGE_PLACEHOLDER   # 🔥 important
+      - name: hello-app   # ✅ FIXED (was "app")
+        image: IMAGE_PLACEHOLDER
         ports:
         - containerPort: 8080
