@@ -5,29 +5,45 @@
 
   <groupId>com.example.maven-project</groupId>
   <artifactId>maven-project</artifactId>
+  <version>${revision}</version>
+  <name>Multi Module App</name>
+         
   <packaging>pom</packaging>
-  <version>1.0-SNAPSHOT</version>
-  <name>Maven Project</name>
+
+  
   <description>Sample Maven project with a working, deployable site.</description>
   <url>http://www.example.com</url>
 
   <properties>
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
+    <revision>1.0.0</revision>
   </properties>
 
+<distributionManagement>
+  <repository>
+    <id>nexus</id>
+    <url>http://192.168.56.11:8081/repository/maven-releases/</url>
+  </repository>
+
+  <snapshotRepository>
+    <id>nexus</id>
+    <url>http://192.168.56.11:8081/repository/maven-snapshots/</url>
+  </snapshotRepository>
+</distributionManagement>
+         
   <modules>
     <module>server</module>
     <module>webapp</module>
   </modules>
 
-  <distributionManagement>
+ <!-- <distributionManagement>
     <site>
       <id>site-server</id>
       <name>Test Project Site</name>
       <url>file:///tmp/maven-project-site</url>
     </site>
-  </distributionManagement>
+  </distributionManagement> -->
 
   <build>
     <plugins>
