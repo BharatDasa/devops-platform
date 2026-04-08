@@ -44,8 +44,22 @@
       <url>file:///tmp/maven-project-site</url>
     </site>
   </distributionManagement> -->
-
+         
   <build>
+   <plugins>
+    <plugin>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>flatten-maven-plugin</artifactId>
+      <version>1.5.0</version>
+      <executions>
+        <execution>
+          <goals>
+            <goal>flatten</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>    
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
