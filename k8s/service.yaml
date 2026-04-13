@@ -3,9 +3,12 @@ kind: Service
 metadata:
   name: hello-app
   namespace: project1
+  labels:
+    app: hello-app
 spec:
   selector:
     app: hello-app
   ports:
-  - port: 80
+  - name: http   # 🔥 IMPORTANT (for ServiceMonitor)
+    port: 80
     targetPort: 8080
