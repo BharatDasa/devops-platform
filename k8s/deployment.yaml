@@ -14,7 +14,32 @@ spec:
         app: hello-app
     spec:
       containers:
-      - name: hello-app   # ✅ FIXED (was "app")
+      - name: hello-app
         image: IMAGE_PLACEHOLDER
         ports:
         - containerPort: 8080
+
+        # ✅ REQUIRED for HPA
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "500m"
+            memory: "256Mi"
+
+        # ✅ PRODUCTION READINESS
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 5
+
+        # ✅ SELF-HEALING
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 20
+          periodSeconds: 10
