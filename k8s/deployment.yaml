@@ -19,6 +19,19 @@ spec:
         ports:
         - containerPort: 8080
 
+        env:
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://otel-collector.monitoring.svc:4317
+        
+          - name: OTEL_SERVICE_NAME
+            value: addressbook
+          
+          - name: OTEL_TRACES_EXPORTER
+            value: otlp
+          
+          - name: OTEL_LOGS_EXPORTER
+            value: otlp
+
         resources:
           requests:
             cpu: "100m"
