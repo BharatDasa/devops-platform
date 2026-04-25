@@ -1,7 +1,7 @@
 apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
-  name: addressbook
+  name: hello-app
   namespace: addressbook
 spec:
   hosts:
@@ -13,6 +13,6 @@ spec:
   http:
     - route:
         - destination:
-            host: 
+            host: hello-app
             port:
               number: 80
