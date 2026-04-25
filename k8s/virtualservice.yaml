@@ -13,6 +13,6 @@ spec:
   http:
     - route:
         - destination:
-            host: addressbook
+            host: 
             port:
               number: 80
