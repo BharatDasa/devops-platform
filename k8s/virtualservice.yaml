@@ -1,0 +1,18 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: addressbook
+  namespace: addressbook
+spec:
+  hosts:
+    - addressbook
+    - addressbook.addressbook.svc.cluster.local
+    - addressbook.192.168.56.101.nip.io   # 🔥 your ingress domain
+  gateways:
+    - istio-system/istio-gateway
+  http:
+    - route:
+        - destination:
+            host: addressbook
+            port:
+              number: 80
