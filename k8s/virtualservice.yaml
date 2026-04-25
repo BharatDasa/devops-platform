@@ -2,7 +2,7 @@ apiVersion: networking.istio.io/v1beta1
 kind: VirtualService
 metadata:
   name: hello-app
-  namespace: addressbook
+  namespace:  project1
 spec:
   hosts:
     - hello
